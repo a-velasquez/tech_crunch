@@ -1,4 +1,4 @@
-class TechCrunch::CLI
+class CLI
 
   def call
     greeting
@@ -9,7 +9,7 @@ class TechCrunch::CLI
 
   def greeting
     puts " Welcome to:"
-    puts "--.--          |    ,---.                    |    " 
+    puts "--.--          |    ,---.                    |    "
     puts "  |  ,---.,---.|---.|    ,---..   .,---.,---.|---."
     puts "  |  |---'|    |   ||    |    |   ||   ||    |   |"
     puts "  `  `---'`---'`   '`---'`    `---'`   '`---'`   '"
@@ -46,7 +46,7 @@ class TechCrunch::CLI
   end
 
   def goodbye
-    puts "Thanks for stopping by!"
+    puts "Thanks for stopping by see!"
   end
 
 end
