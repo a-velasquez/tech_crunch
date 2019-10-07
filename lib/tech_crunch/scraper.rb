@@ -15,7 +15,7 @@ class Scraper
   def self.scrape_tech_crunch
     doc = Nokogiri::HTML(open("https://techcrunch.com"))
 
-    a = TechCrunch::Article.new
+    a = Article.new
     a.name = doc.css("h2.post-block__title").text.strip.split("\t\t\t\n\t\t\n\t\t\t\n\t\t\t\t")
     a.author = doc.css("div.post-block__meta div span").text.split("\t\t\t\n\t\t\t\n\t\t\t\t\t\n\t\t\t\t")
     a.url = doc.css("a").attribute("href").value
