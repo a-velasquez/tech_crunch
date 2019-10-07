@@ -4,10 +4,10 @@ require 'pry'
 require 'byebug'
 
 
-require_relative "./tech_sites/version"
-require_relative "./tech_sites/article"
-require_relative "./tech_sites/cli"
-require_relative "./tech_sites/scraper"
+require_relative "./tech_crunch/version"
+require_relative "./tech_crunch/article"
+require_relative "./tech_crunch/cli"
+require_relative "./tech_crunch/scraper"
 
 module TechCrunch
   class Error < StandardError; end

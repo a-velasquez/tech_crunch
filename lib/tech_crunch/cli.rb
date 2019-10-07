@@ -9,18 +9,16 @@ class TechCrunch::CLI
 
   def greeting
     puts " Welcome to:"
-    puts "  _______             _                 ______  _                      "
-    puts " (_______)           | |               / _____)(_)   _                 "
-    puts "    | | _____   ____ | |__     _____  ( (____   _  _| |_  _____   ___  "
-    puts "    | || ___ | / ___)|  _  |  (_____)   ____   | |(_   _)| ___ | /___) "
-    puts "    | || ____|( (___ | | | |           _____) )| |  | |_ | ____||___ | "
-    puts "    |_||_____)  ____)|_| |_|          (______/ |_|  | __)|_____) (___/ "
-    puts " "
+    puts "--.--          |    ,---.                    |    " 
+    puts "  |  ,---.,---.|---.|    ,---..   .,---.,---.|---."
+    puts "  |  |---'|    |   ||    |    |   ||   ||    |   |"
+    puts "  `  `---'`---'`   '`---'`    `---'`   '`---'`   '"
+    puts ""
   end
 
   def recent_articles     #lists most recent articles
     puts "Here's a list of the most recent articles:"
-    @articles = TechCrunch::Scraper.today
+    @articles = Scraper.read
     @articles.each.with_index(1) do |post, index|
       puts "#{index}. #{post.name} by #{post.author}."
     end

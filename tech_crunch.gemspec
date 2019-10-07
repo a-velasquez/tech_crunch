@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Tech Crunch article aggregator"
   spec.description   = "Scrapes the most recent articles from TechCrunch.com"
-  spec.homepage      = "git@github.com:a-velasquez/tech_crunch.git"
+  spec.homepage      = "https://github.com/a-velasquez/tech_crunch.git"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -19,9 +19,9 @@ Gem::Specification.new do |spec|
   if spec.respond_to?(:metadata)
     spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
-    spec.metadata["homepage_uri"] = spec.homepage
-    spec.metadata["source_code_uri"] = "git@github.com:a-velasquez/tech_crunch.git"
-    spec.metadata["changelog_uri"] = "git@github.com:a-velasquez/tech_crunch.git"
+    spec.metadata["homepage_uri"] = "https://github.com/a-velasquez/tech_crunch.git"
+    spec.metadata["source_code_uri"] = "https://github.com/a-velasquez/tech_crunch.git"
+    spec.metadata["changelog_uri"] = "https://github.com/a-velasquez/tech_crunch.git"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
@@ -42,5 +42,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "byebug"
 
   spec.add_dependency "nokogiri"
-  
+
 end
