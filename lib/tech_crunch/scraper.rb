@@ -5,11 +5,11 @@ class TechCrunch::Scraper
   end
 
   def self.scrape_articles
-   articles = []
+    articles = []
 
-   articles << self.scrape_tech_crunch
+    articles << self.scrape_tech_crunch
 
-   articles
+    articles
   end
 
   def self.scrape_tech_crunch
