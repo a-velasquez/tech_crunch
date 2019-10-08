@@ -14,6 +14,7 @@ class Scraper
 
   def self.scrape_tech_crunch
     doc = Nokogiri::HTML(open("https://techcrunch.com"))
+    byebug
 
     a = Article.new
     a.name = doc.css("h2.post-block__title").text.strip.split("\t\t\t\n\t\t\n\t\t\t\n\t\t\t\t")
