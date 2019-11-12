@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Alex Velasquez'"]
   spec.email         = ["'jtinnesco@gmail.com'"]
 
-  spec.summary       = "Tech Crunch article aggregator"
+  spec.summary       = "TechCrunch.com latest article scraper"
   spec.description   = "Scrapes the most recent articles from TechCrunch.com"
   spec.homepage      = "https://github.com/a-velasquez/tech_crunch.git"
   spec.license       = "MIT"
@@ -39,7 +39,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "pry"
-  spec.add_development_dependency "byebug"
 
   spec.add_dependency "nokogiri"
 
