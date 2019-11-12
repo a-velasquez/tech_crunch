@@ -23,7 +23,7 @@ Or install it yourself as:
 
 ## Usage
 
-run $./tech_crunch
+run tech_crunch
 
 ## Development
 
