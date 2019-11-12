@@ -1,4 +1,4 @@
 class Article
-  attr_accessor :name, :author, :url, :preview
+  attr_accessor :title, :author, :url, :preview
 
 end
