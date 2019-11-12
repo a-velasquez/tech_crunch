@@ -1,9 +1,9 @@
 # TechCrunch
 
-This TechCrunch Ruby Gem provides users with a CLI to read the 'latest' articles from
-TechCrunch.com. Users are presented with a list of articles and can choose to read the
-full article. A link is also provided for each article if the user would like to open
-the article in their default browser.
+This Ruby Gem provides users with a CLI to read the latest articles from
+TechCrunch.com. The user can choose to read the full article of their choosing
+in the terminal, but a link is also provided to open the article in the user's
+default browser.
 
 ## Installation
 
@@ -23,7 +23,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+run ruby bin/tech_crunch
 
 ## Development
 
