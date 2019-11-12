@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require './lib/tech_crunch'
+require '../lib/tech_crunch'
 
 CLI.new.call
