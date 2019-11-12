@@ -23,7 +23,7 @@ Or install it yourself as:
 
 ## Usage
 
-run ruby bin/tech_crunch
+run ./tech_crunch
 
 ## Development
 
