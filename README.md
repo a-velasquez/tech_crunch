@@ -23,7 +23,7 @@ Or install it yourself as:
 
 ## Usage
 
-run ```ruby bin/tech_crunch``` after installing the gem.
+run ```ruby bin/tech_crunch``` after installing the gem to see the latest articles. 
 
 ## Development
 
