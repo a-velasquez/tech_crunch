@@ -18,7 +18,7 @@ class CLI
 
   def recent_articles     #lists most recent articles
     puts "Here's a list of the most recent articles:"
-    @articles = Scraper.read
+    @articles = Scraper.scrape_headlines
     @articles.each.with_index(1) do |post, index|
       puts "#{index}. #{post.name} by #{post.author}."
     end
