@@ -8,7 +8,7 @@ class Scraper
     headlines = Nokogiri::HTML(open(html))
     headlines.css('div.post-block').each do |headline|
       headline_details = {}
-      headline_details[:title] = headlines.css("h2.post-block__title").css("a").text
+      headline_details[:title] = headline.at_css('h2.post-block__title a').text.strip
 
       articles << headline_details
     end
