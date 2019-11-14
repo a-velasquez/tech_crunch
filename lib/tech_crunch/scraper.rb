@@ -4,7 +4,7 @@ class Scraper
 
   def self.scrape_headlines(homepage_url)
     articles = []
-    html = open("https://techcrunch.com")
+    html = open(homepage_url)
     headlines = Nokogiri::HTML(open(html))
     headlines.css('div.post-block').each do |headline|
       headline_details = {}

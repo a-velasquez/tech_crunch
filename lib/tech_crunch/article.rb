@@ -10,10 +10,14 @@ class Article
     @@all << self
   end
 
-  def self.create_from_cli(articles_array)
-    articles_array.each do |article_hash|
-      self.new(article_hash)
+  def self.create_from_cli(articles)
+    articles.each do |article|
+      self.new(article)
     end
+  end
+
+  def self.all
+    @@all
   end
 
 end
