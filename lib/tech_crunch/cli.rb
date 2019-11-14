@@ -14,6 +14,10 @@ class CLI
     Article.create_from_cli(article_array)
   end
 
+  def add_full_article_to_headline
+
+  end
+
   def greeting
     puts " Welcome to:"
     puts "--.--          |    ,---.                    |    "
