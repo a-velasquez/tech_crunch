@@ -5,13 +5,13 @@ class Article
 
   def initialize(headline_hash)
     headline_hash.each do |key, value|
-      self.send("#{key}", v)
+      self.send("#{key}=", value)
     end
     @@all << self
   end
 
-  def self.create_from_cli(articles)
-    articles.each do |article|
+  def self.create_from_cli(articles_array)
+    articles_array.each do |article|
       self.new(article)
     end
   end
