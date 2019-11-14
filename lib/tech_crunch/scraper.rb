@@ -2,7 +2,7 @@ require 'pry'
 
 class Scraper
 
-  def self.scrape_headlines
+  def self.scrape_headlines(homepage_url)
     articles = []
     html = open("https://techcrunch.com")
     headlines = Nokogiri::HTML(open(html))

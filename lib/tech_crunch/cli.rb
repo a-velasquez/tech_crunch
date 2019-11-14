@@ -2,9 +2,16 @@ class CLI
 
   def call
     greeting
+    make_articles
+    binding.pry
     recent_articles
     menu
     goodbye
+  end
+
+  def make_articles
+    article_array = Scraper.scrape_headlines("https://techcrunch.com")
+    Article.create_from_cli(article_array)
   end
 
   def greeting
