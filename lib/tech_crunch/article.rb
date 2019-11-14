@@ -1,5 +1,5 @@
 class Article
-  attr_accessor :title, :author, :url, :preview
+  attr_accessor :title, :author, :href, :preview
 
   @@all = []
 
