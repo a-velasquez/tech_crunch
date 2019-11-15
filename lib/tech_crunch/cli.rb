@@ -3,24 +3,14 @@ class CLI
   def call
     greeting
     make_articles
-    # add_full_article_to_headline
     recent_articles
     menu
     binding.pry
     goodbye
   end
 
-  def make_articles
-    article_array = Scraper.scrape_headlines("https://techcrunch.com") #scrapes headlines
-    Article.create_from_cli(article_array) #creates initial instance of each Article object
-
-    Article.all.each do |headline| #adds full article text to each instance of Article
-      full_text = Scraper.scrape_full_text(headline.href)
-      headline.add_full_text(full_text)
-    end
-  end
-
   def greeting
+    puts ""
     puts " Welcome to:"
     puts "--.--          |    ,---.                    |    "
     puts "  |  ,---.,---.|---.|    ,---..   .,---.,---.|---."
@@ -29,8 +19,19 @@ class CLI
     puts ""
   end
 
+  def make_articles
+    article_array = Scraper.scrape_headlines("https://techcrunch.com") #scrapes headlines
+    Article.create_from_cli(article_array) #creates initial instance of each Article object
+
+    Article.all.each do |headline|
+      full_text = Scraper.scrape_full_text(headline.href)
+      headline.add_full_text(full_text) #adds full article text to each instance of Article
+    end
+  end
+
   def recent_articles     #lists most recent articles by calling Article.all and iterating
     puts "Here's a list of the most recent articles:"
+    puts seperator
     Article.all.each.with_index(1) do |article, index|
       puts "#{index}. #{article.title} By #{article.author}"
     end
@@ -43,12 +44,12 @@ class CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        posting = Article.all[input.to_i-1]
+        selected_article = Article.all[input.to_i-1]
         puts ""
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        puts "#{posting.text}"
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        puts "the full article can be found at: #{posting.href}"
+        puts seperator
+        puts "#{selected_article.text}"
+        puts seperator
+        puts "the full article can be found at: #{selected_article.href}"
       elsif input == "recent"
         recent_articles
       else
@@ -59,6 +60,10 @@ class CLI
 
   def goodbye
     puts "Thanks for stopping by!"
+  end
+
+  def seperator
+    puts "~" * 125
   end
 
 end
