@@ -17,7 +17,9 @@ class Article
   end
 
   def self.add_full_text(article_hash)
-    article_hash.each do
+    article_hash.each do |key, value|
+      self.send("#{key}=", value)
+    end
   end
 
   def self.all

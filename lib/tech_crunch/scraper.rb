@@ -16,5 +16,11 @@ class Scraper
     articles
   end
 
+  def self.scrape_full_text()
+
+  end
+
+
+
 
  end
