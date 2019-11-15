@@ -33,7 +33,7 @@ class CLI
   def recent_articles     #lists most recent articles by calling Article.all and iterating
     puts "Here's a list of the most recent articles:"
     Article.all.each.with_index(1) do |article, index|
-      puts "#{index}. #{article.title} by #{article.author}."
+      puts "#{index}. #{article.title} By #{article.author}"
     end
   end
 
