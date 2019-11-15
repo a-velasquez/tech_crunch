@@ -3,6 +3,7 @@ class CLI
   def call
     greeting
     make_articles
+    add_full_article_to_headline
     recent_articles
     binding.pry
     menu
@@ -15,9 +16,9 @@ class CLI
   end
 
   def add_full_article_to_headline
-    Article.all.each do |article|
-      full_text = Scraper.scrape_full_text(article.href)
-      article.add_full_text(full_text)
+    Article.all.each do |headline|
+      full_text = Scraper.scrape_full_text(headline.href)
+      headline.add_full_text(full_text)
     end
   end
 

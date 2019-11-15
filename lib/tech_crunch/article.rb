@@ -1,5 +1,5 @@
 class Article
-  attr_accessor :title, :author, :href, :preview
+  attr_accessor :title, :author, :href, :preview, :text
 
   @@all = []
 
@@ -16,7 +16,7 @@ class Article
     end
   end
 
-  def self.add_full_text(article_hash)
+  def add_full_text(article_hash)
     article_hash.each do |key, value|
       self.send("#{key}=", value)
     end

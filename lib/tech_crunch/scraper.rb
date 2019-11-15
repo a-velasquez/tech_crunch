@@ -16,11 +16,14 @@ class Scraper
     articles
   end
 
-  def self.scrape_full_text()
-
+  def self.scrape_full_text(article_href)
+    full_articles = {}
+    full_text = Nokogiri::HTML(open(article_href))
+    full_text.css('div.article-content').each do |article|
+      full_articles[:text] = full_text.css('p').text
+    end
+    full_articles
   end
-
-
 
 
  end
