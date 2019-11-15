@@ -60,7 +60,7 @@ class CLI
   end
 
   def goodbye
-    puts "Thanks for stopping by see!"
+    puts "Thanks for stopping by!"
   end
 
 end
