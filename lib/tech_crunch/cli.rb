@@ -5,8 +5,8 @@ class CLI
     make_articles
     add_full_article_to_headline
     recent_articles
-    binding.pry
     menu
+    binding.pry
     goodbye
   end
 
@@ -41,18 +41,18 @@ class CLI
   def menu
     input = nil
     while input != "exit"
-      puts "enter the number of the article you'd like to preview, or type 'recent' to see the list again"
+      puts "enter the number of the article you'd like to read, or type 'recent' to see the list again"
       input = gets.strip.downcase
 
       if input.to_i > 0
-        posting = @articles[input.to_i-1]
-        puts "Here ya go!"
+        posting = Article.all[input.to_i-1]
+        puts ""
         puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        puts "#{posting.preview}"
+        puts "#{posting.text}"
         puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        puts "the full article can be found at: #{posting.url}"
+        puts "the full article can be found at: #{posting.href}"
       elsif input == "recent"
-        puts recent_articles
+        recent_articles
       else
         puts "Hmmm. I didn't quite get that. Type 'recent' or 'exit.'"
       end
