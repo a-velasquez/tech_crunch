@@ -1,11 +1,10 @@
 class CLI
 
-  def call
+  def run
     greeting
     make_articles
     recent_articles
     menu
-    binding.pry
     goodbye
   end
 
@@ -35,6 +34,7 @@ class CLI
     Article.all.each.with_index(1) do |article, index|
       puts "#{index}. #{article.title} By #{article.author}"
     end
+    puts seperator
   end
 
   def menu
@@ -57,13 +57,13 @@ class CLI
       elsif input == "recent"
         recent_articles
       else
-        puts "Hmmm. I didn't quite get that. Type 'recent' to see the articles again or 'exit' to quit".white.bold
+        puts "Hmmm. I didn't quite get that. Type 'recent' to see the articles again or 'exit' to quit"
       end
     end
   end
 
   def goodbye
-    puts "Thanks for stopping by!"
+    puts " 👋🏼 Thanks for stopping by!"
   end
 
   def seperator
