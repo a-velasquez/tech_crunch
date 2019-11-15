@@ -18,6 +18,7 @@ class CLI
     Article.all.ech do |article|
       full_text = Scraper.scrape_full_text(article.href)
       article.add_full_text(full_text)
+    end
   end
 
   def greeting
