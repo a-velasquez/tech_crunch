@@ -3,8 +3,8 @@ class CLI
   def call
     greeting
     make_articles
-    binding.pry
     recent_articles
+    binding.pry
     menu
     goodbye
   end
@@ -30,11 +30,10 @@ class CLI
     puts ""
   end
 
-  def recent_articles     #lists most recent articles
+  def recent_articles     #lists most recent articles by calling Article.all and iterating
     puts "Here's a list of the most recent articles:"
-    @articles = Scraper.scrape_headlines
-    @articles.each.with_index(1) do |post, index|
-      puts "#{index}. #{post.name} by #{post.author}."
+    Article.all.each.with_index(1) do |article, index|
+      puts "#{index}. #{article.title} by #{article.author}."
     end
   end
 
