@@ -40,20 +40,24 @@ class CLI
   def menu
     input = nil
     while input != "exit"
-      puts "enter the number of the article you'd like to read, or type 'recent' to see the list again".white.bold
+      puts ""
+      puts "enter the number of the article you'd like to read".white.bold
       input = gets.strip.downcase
 
-      if input.to_i > 0
+      if input.to_i > 0 && input.to_i < 21
         selected_article = Article.all[input.to_i-1]
         puts ""
         puts seperator
+        puts "#{selected_article.title} By #{selected_article.author}"
+        puts ""
         puts "#{selected_article.text}"
-        puts seperator
+        puts ""
         puts "the full article can be found at: #{selected_article.href}"
+        puts seperator
       elsif input == "recent"
         recent_articles
       else
-        puts "Hmmm. I didn't quite get that. Type 'recent' or 'exit.'"
+        puts "Hmmm. I didn't quite get that. Type 'recent' to see the articles again or 'exit' to quit".white.bold
       end
     end
   end
@@ -63,7 +67,7 @@ class CLI
   end
 
   def seperator
-    puts "~".white.bold * 125
+    puts "~" * 125
   end
 
 end
