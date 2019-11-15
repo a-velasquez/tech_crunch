@@ -3,7 +3,7 @@ class CLI
   def call
     greeting
     make_articles
-    add_full_article_to_headline
+    # add_full_article_to_headline
     recent_articles
     menu
     binding.pry
@@ -11,12 +11,10 @@ class CLI
   end
 
   def make_articles
-    article_array = Scraper.scrape_headlines("https://techcrunch.com")
-    Article.create_from_cli(article_array)
-  end
+    article_array = Scraper.scrape_headlines("https://techcrunch.com") #scrapes headlines
+    Article.create_from_cli(article_array) #creates initial instance of each Article object
 
-  def add_full_article_to_headline
-    Article.all.each do |headline|
+    Article.all.each do |headline| #adds full article text to each instance of Article
       full_text = Scraper.scrape_full_text(headline.href)
       headline.add_full_text(full_text)
     end
