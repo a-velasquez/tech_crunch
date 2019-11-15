@@ -15,7 +15,7 @@ class CLI
   end
 
   def add_full_article_to_headline
-    Article.all.ech do |article|
+    Article.all.each do |article|
       full_text = Scraper.scrape_full_text(article.href)
       article.add_full_text(full_text)
     end

@@ -16,6 +16,10 @@ class Article
     end
   end
 
+  def self.add_full_text(article_hash)
+    article_hash.each do
+  end
+
   def self.all
     @@all
   end
