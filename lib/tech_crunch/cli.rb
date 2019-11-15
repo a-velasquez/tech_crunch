@@ -11,7 +11,7 @@ class CLI
 
   def greeting
     puts ""
-    puts " Welcome to:"
+    puts "Welcome to:"
     puts "--.--          |    ,---.                    |    "
     puts "  |  ,---.,---.|---.|    ,---..   .,---.,---.|---."
     puts "  |  |---'|    |   ||    |    |   ||   ||    |   |"
@@ -40,7 +40,7 @@ class CLI
   def menu
     input = nil
     while input != "exit"
-      puts "enter the number of the article you'd like to read, or type 'recent' to see the list again"
+      puts "enter the number of the article you'd like to read, or type 'recent' to see the list again".white.bold
       input = gets.strip.downcase
 
       if input.to_i > 0
@@ -63,7 +63,7 @@ class CLI
   end
 
   def seperator
-    puts "~" * 125
+    puts "~".white.bold * 125
   end
 
 end
