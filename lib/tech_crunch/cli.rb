@@ -6,7 +6,7 @@ class CLI
     recent_articles
     menu
   end
-
+  
   def greeting
     puts ""
     puts " Welcome to:"
@@ -15,7 +15,7 @@ class CLI
     puts "   |  |---'|    |   ||    |    |   ||   ||    |   |"
     puts "   `  `---'`---'`   '`---'`    `---'`   '`---'`   '"
     puts ""
-    puts " Latest articles loading ... :"
+    puts " Latest articles loading ..."
   end
 
   def make_articles
@@ -31,7 +31,7 @@ class CLI
   def recent_articles     #lists most recent articles by calling Article.all and iterating
     puts divider
     Article.all.each.with_index(1) do |article, index|
-      puts " #{index}. #{article.title} By #{article.author}"
+      puts " #{index}. #{article.title.upcase} By #{article.author}"
     end
     puts divider
   end
@@ -39,14 +39,15 @@ class CLI
   def menu
     input = nil
     while input != "exit"
-      puts " Enter the number of the article you'd like to read, 'list' to see the latest articles, or 'exit' to quit.".white.bold
+      puts " Enter the number of the article you'd like to read, 'list' to see the latest articles, or 'exit' to quit."
       input = gets.strip.downcase
 
       if input.to_i > 0 && input.to_i < 21
         selected_article = Article.all[input.to_i-1]
         puts ""
         puts  divider
-        puts " #{selected_article.title} By #{selected_article.author}"
+        puts " #{selected_article.title.upcase}"
+        puts " By #{selected_article.author}"
         puts ""
         puts " #{selected_article.text}"
         puts ""
@@ -57,17 +58,16 @@ class CLI
       elsif input == "exit"
         goodbye
       else
-        puts " Hmmm. I didn't quite get that".bold
+        puts " Hmmm. I didn't quite get that"
       end
     end
   end
 
   def goodbye
-    puts " 👋🏼 Thanks for stopping by!".white.bold
+    puts " 👋🏼 Thanks for stopping by!"
   end
 
   def divider
     puts " ~" * 85
   end
-
 end

@@ -1,9 +1,8 @@
 class Scraper
 
-  def self.scrape_headlines(index_url)
+  def self.scrape_headlines(homepage_url)
     articles = []
-    html = open(index_url)
-    headlines = Nokogiri::HTML(html)
+    headlines = Nokogiri::HTML(open(homepage_url))
     headlines.css('.post-block').each do |headline|
       headline_details = {}
       headline_details[:title]   = headline.at_css('h2.post-block__title a').text.strip
@@ -24,6 +23,4 @@ class Scraper
     end
     full_articles
   end
-
-
  end
