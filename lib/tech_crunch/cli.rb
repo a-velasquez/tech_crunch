@@ -32,8 +32,10 @@ class CLI
     puts divider
     Article.all.each.with_index(1) do |article, index|
       puts " #{index}. #{article.title.upcase} By #{article.author}"
+      puts ""
+      puts " #{article.preview}"
+      puts divider
     end
-    puts divider
   end
 
   def menu
@@ -68,6 +70,6 @@ class CLI
   end
 
   def divider
-    puts " ~" * 85
+    puts " ~" * 60
   end
 end
