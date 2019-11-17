@@ -6,7 +6,7 @@ class CLI
     recent_articles
     menu
   end
-  
+
   def greeting
     puts ""
     puts " Welcome to:"
@@ -15,7 +15,7 @@ class CLI
     puts "   |  |---'|    |   ||    |    |   ||   ||    |   |"
     puts "   `  `---'`---'`   '`---'`    `---'`   '`---'`   '"
     puts ""
-    puts " Latest articles loading ..."
+    puts " Latest articles loading..."
   end
 
   def make_articles
