@@ -34,6 +34,7 @@ class CLI
       puts " #{index}. #{article.title.upcase} By #{article.author}"
       puts ""
       puts " #{article.preview}"
+      puts ""
       puts divider
     end
   end
