@@ -5,17 +5,17 @@ class CLI
     make_articles
     recent_articles
     menu
-    goodbye
   end
 
   def greeting
     puts ""
-    puts "Welcome to:"
-    puts "--.--          |    ,---.                    |    "
-    puts "  |  ,---.,---.|---.|    ,---..   .,---.,---.|---."
-    puts "  |  |---'|    |   ||    |    |   ||   ||    |   |"
-    puts "  `  `---'`---'`   '`---'`    `---'`   '`---'`   '"
+    puts " Welcome to:"
+    puts " --.--          |    ,---.                    |    "
+    puts "   |  ,---.,---.|---.|    ,---..   .,---.,---.|---."
+    puts "   |  |---'|    |   ||    |    |   ||   ||    |   |"
+    puts "   `  `---'`---'`   '`---'`    `---'`   '`---'`   '"
     puts ""
+    puts " Latest articles loading ... :"
   end
 
   def make_articles
@@ -29,45 +29,45 @@ class CLI
   end
 
   def recent_articles     #lists most recent articles by calling Article.all and iterating
-    puts "Here's a list of the most recent articles:"
-    puts seperator
+    puts divider
     Article.all.each.with_index(1) do |article, index|
-      puts "#{index}. #{article.title} By #{article.author}"
+      puts " #{index}. #{article.title} By #{article.author}"
     end
-    puts seperator
+    puts divider
   end
 
   def menu
     input = nil
     while input != "exit"
-      puts ""
-      puts "enter the number of the article you'd like to read".white.bold
+      puts " Enter the number of the article you'd like to read, 'list' to see the latest articles, or 'exit' to quit.".white.bold
       input = gets.strip.downcase
 
       if input.to_i > 0 && input.to_i < 21
         selected_article = Article.all[input.to_i-1]
         puts ""
-        puts seperator
-        puts "#{selected_article.title} By #{selected_article.author}"
+        puts  divider
+        puts " #{selected_article.title} By #{selected_article.author}"
         puts ""
-        puts "#{selected_article.text}"
+        puts " #{selected_article.text}"
         puts ""
         puts "the full article can be found at: #{selected_article.href}"
-        puts seperator
-      elsif input == "recent"
+        puts divider
+      elsif input == "list"
         recent_articles
+      elsif input == "exit"
+        goodbye
       else
-        puts "Hmmm. I didn't quite get that. Type 'recent' to see the articles again or 'exit' to quit"
+        puts " Hmmm. I didn't quite get that".bold
       end
     end
   end
 
   def goodbye
-    puts " 👋🏼 Thanks for stopping by!"
+    puts " 👋🏼 Thanks for stopping by!".white.bold
   end
 
-  def seperator
-    puts "~" * 125
+  def divider
+    puts " ~" * 85
   end
 
 end
