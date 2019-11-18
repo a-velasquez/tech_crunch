@@ -3,6 +3,7 @@ class CLI
   def run
     greeting
     make_articles
+    binding.pry
     recent_articles
     menu
   end
@@ -19,21 +20,23 @@ class CLI
   end
 
   def make_articles
-    article_array = Scraper.scrape_headlines("https://techcrunch.com") #scrapes headlines
-    Article.create_from_cli(article_array) #creates initial instance of each Article object
+    article_array = Scraper.scrape_headlines("https://techcrunch.com")
 
-    Article.all.each do |headline|
-      full_text = Scraper.scrape_full_text(headline.href)
-      headline.add_full_text(full_text) #adds full article text to each instance of Article
-    end
+    # article_array = Scraper.scrape_headlines("https://techcrunch.com") #scrapes headlines
+    # Article.create_from_cli(article_array) #creates initial instance of each Article object
+    #
+    # Article.all.each do |headline|
+    #   full_text = Scraper.scrape_full_text(headline.href)
+    #   headline.add_full_text(full_text) #adds full article text to each instance of Article
+    # end
   end
 
   def recent_articles     #lists most recent articles by calling Article.all and iterating
     puts divider
     Article.all.each.with_index(1) do |article, index|
-      puts " #{index}. #{article.title.upcase} By #{article.author}"
+      puts "#{index}. #{article.title.strip} By #{article.author.strip}"
       puts ""
-      puts " #{article.preview}"
+      puts " #{article.preview.strip}"
       puts ""
       puts divider
     end
@@ -49,10 +52,10 @@ class CLI
         selected_article = Article.all[input.to_i-1]
         puts ""
         puts  divider
-        puts " #{selected_article.title.upcase}"
+        puts " #{selected_article.title.strip}"
         puts " By #{selected_article.author}"
         puts ""
-        puts " #{selected_article.text}"
+        puts " #{selected_article.full_text}"
         puts ""
         puts "the full article can be found at: #{selected_article.href}"
         puts divider
