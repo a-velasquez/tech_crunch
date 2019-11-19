@@ -20,7 +20,7 @@ class CLI
   end
 
   def make_articles
-    article_array = Scraper.scrape_headlines("https://techcrunch.com")
+    Scraper.scrape_headlines("https://techcrunch.com")
 
     # article_array = Scraper.scrape_headlines("https://techcrunch.com") #scrapes headlines
     # Article.create_from_cli(article_array) #creates initial instance of each Article object
