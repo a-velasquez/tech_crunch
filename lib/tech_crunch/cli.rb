@@ -3,7 +3,6 @@ class CLI
   def run
     greeting
     make_articles
-    binding.pry
     recent_articles
     menu
   end
@@ -34,9 +33,9 @@ class CLI
   def recent_articles     #lists most recent articles by calling Article.all and iterating
     puts divider
     Article.all.each.with_index(1) do |article, index|
-      puts "#{index}. #{article.title.strip} By #{article.author.strip}"
+      puts "#{index}. #{article.title.upcase} By #{article.author}"
       puts ""
-      puts " #{article.preview.strip}"
+      puts "   #{article.preview.strip}"
       puts ""
       puts divider
     end
@@ -52,7 +51,7 @@ class CLI
         selected_article = Article.all[input.to_i-1]
         puts ""
         puts  divider
-        puts " #{selected_article.title.strip}"
+        puts " #{selected_article.title.upcase}"
         puts " By #{selected_article.author}"
         puts ""
         puts " #{selected_article.full_text}"

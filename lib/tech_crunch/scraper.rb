@@ -4,7 +4,7 @@ class Scraper
 
     headlines = Nokogiri::HTML(open(homepage_url))
     headlines.css('.post-block').each do |headline|
-      title = headline.at_css('h2.post-block__title a').text
+      title = headline.at_css('h2.post-block__title a').text.strip
       preview = headline.at_css('div.post-block__content').text.strip
       author = headline.at_css('div.river-byline').css('.river-byline__authors').text.strip
       href = headline.at_css('h2.post-block__title a').attribute('href').value
