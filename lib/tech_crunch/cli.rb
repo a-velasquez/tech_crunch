@@ -19,15 +19,13 @@ class CLI
   end
 
   def make_articles
-    Scraper.scrape_headlines("https://techcrunch.com")
+    article_array = Scraper.scrape_headlines("https://techcrunch.com") #scrapes headlines
+    Article.create_from_cli(article_array) #creates initial instance of each Article object
 
-    # article_array = Scraper.scrape_headlines("https://techcrunch.com") #scrapes headlines
-    # Article.create_from_cli(article_array) #creates initial instance of each Article object
-    #
-    # Article.all.each do |headline|
-    #   full_text = Scraper.scrape_full_text(headline.href)
-    #   headline.add_full_text(full_text) #adds full article text to each instance of Article
-    # end
+    Article.all.each do |headline|
+      full_text = Scraper.scrape_full_text(headline.href)
+      headline.add_full_text(full_text) #adds full article text to each instance of Article
+    end
   end
 
   def recent_articles     #lists most recent articles by calling Article.all and iterating
@@ -76,3 +74,9 @@ class CLI
     puts " ~" * 60
   end
 end
+
+
+
+
+
+    # Scraper.scrape_headlines("https://techcrunch.com")
