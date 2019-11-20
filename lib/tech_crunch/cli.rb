@@ -43,7 +43,7 @@ class CLI
     input = nil
     while input != "exit"
       puts " Enter the number of the article you'd like to read, 'list' to see the latest articles, or 'exit' to quit."
-      input = gets.strip.downcase
+      input = gets.strip.downcase # - .strip to remove any whitespaces from input
 
       if input.to_i > 0 && input.to_i < 21
         selected_article = Article.all[input.to_i-1]
@@ -61,7 +61,7 @@ class CLI
       elsif input == "exit"
         goodbye
       else
-        puts " Hmmm. I didn't quite get that"
+        puts " Hmmm. I didn't quite get that" # - Message user gets if invalid input.
       end
     end
   end
@@ -70,7 +70,7 @@ class CLI
     puts " 👋🏼 Thanks for stopping by!"
   end
 
-  def divider
+  def divider # - Helps keep code DRY and with presentation.
     puts " ~" * 60
   end
 end
@@ -79,4 +79,7 @@ end
 
 
 
-    # Scraper.scrape_headlines("https://techcrunch.com")
+
+
+#  Scraper.scrape_headlines("https://techcrunch.com")
+#  Scraper.add_article

@@ -29,18 +29,25 @@ end
 
 
 
-
-
-
-# def initialize(title, preview, author, href, full_text)
-#   @eauthor = author
-#   @href = href
-#   @preview = preview
-#   @full_text = full_text
-#   @title = title
-#   self.save
-# end
+# class Article
+#   attr_accessor :author, :href, :preview, :full_text, :title
 #
-# def save
-#   @@all << self
+#   @@all = []
+#
+#   def initialize(title, preview, author, href, full_text = nil)
+#     @.author = author
+#     @href = href
+#     @preview = preview
+#     @full_text = full_text
+#     @title = title
+#     self.save
+#   end
+#
+#   def save
+#     @@all << self
+#   end
+#
+#   def self.all
+#     @@all
+#   end
 # end
