@@ -19,16 +19,16 @@ class CLI
   end
 
   def make_articles
-    article_array = Scraper.scrape_headlines("https://techcrunch.com") #scrapes headlines
-    Article.create_from_cli(article_array) #creates initial instance of each Article object
+    article_array = Scraper.scrape_headlines("https://techcrunch.com") # - Scrapes headlines
+    Article.create_from_cli(article_array) # - Creates initial instance of each Article object
 
     Article.all.each do |headline|
       full_text = Scraper.scrape_full_text(headline.href)
-      headline.add_full_text(full_text) #adds full article text to each instance of Article
+      headline.add_full_text(full_text) # - Adds full article text to each instance of Article
     end
   end
 
-  def recent_articles     #lists most recent articles by calling Article.all and iterating
+  def recent_articles     # - Lists most recent articles by calling Article.all and iterating
     puts divider
     Article.all.each.with_index(1) do |article, index|
       puts "#{index}. #{article.title.upcase} By #{article.author}"

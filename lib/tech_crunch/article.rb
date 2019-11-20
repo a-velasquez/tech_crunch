@@ -1,5 +1,5 @@
 class Article
-  attr_accessor :author, :href, :preview, :full_text, :title
+  attr_accessor :author, :full_text, :href, :preview, :title
 
   @@all = []
 
@@ -26,6 +26,13 @@ class Article
     @@all
   end
 end
+
+
+
+
+
+
+
 
 
 
