@@ -3,16 +3,16 @@ class Article
 
   @@all = []
 
-  def initialize(headline_hash)
+  def initialize(headline_hash) # - Takes an argument of a hash from create_from_cli method
     headline_hash.each do |key, value|
-      self.send("#{key}=", value)
+      self.send("#{key}=", value) # - Sets attributes/values to key/value pairs from our hash 
     end
     @@all << self
   end
 
-  def self.create_from_cli(articles_array)
+  def self.create_from_cli(articles_array) # - Takes in array of hashes created by Scraper.scrape_headlines
     articles_array.each do |article|
-      self.new(article)
+      self.new(article) # - Creates new instances of Articles using each hash
     end
   end
 
