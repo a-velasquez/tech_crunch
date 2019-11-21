@@ -5,7 +5,7 @@ class Article
 
   def initialize(headline_hash) # - Takes an argument of a hash from create_from_cli method
     headline_hash.each do |key, value|
-      self.send("#{key}=", value) # - Sets attributes/values to key/value pairs from our hash 
+      self.send("#{key}=", value) # - Sets attributes/values to key/value pairs from our hash
     end
     @@all << self
   end
@@ -16,9 +16,10 @@ class Article
     end
   end
 
-  def add_full_text(article_hash)
+  def add_full_text(article_hash) # - Instance method takes resulting hash from Scraper.scrape_full_text
     article_hash.each do |key, value|
       self.send("#{key}=", value)
+      # self. operates on each instance of article to set key/value pairs of the hash for each article instance 
     end
   end
 
