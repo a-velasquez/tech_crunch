@@ -29,6 +29,14 @@ end
 
 
 
+
+
+
+
+
+
+
+
 # class Scraper
 #
 #   def self.scrape_headlines(homepage_url)
