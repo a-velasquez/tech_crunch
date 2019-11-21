@@ -2,7 +2,7 @@ class Scraper
 
   def self.scrape_headlines(homepage_url)
     articles = [] # - Empty array to collect hashes below, each hash representing instance of article
-    headlines = Nokogiri::HTML(open(homepage_url)) # - Nodeset set to local variable, then iterate
+    headlines = Nokogiri::HTML(open(homepage_url)) # - Nodeset set to local variable, to iterate over
     headlines.css('.post-block').each do |headline|
       headline_details = {}
       headline_details[:author]  = headline.at_css('div.river-byline').css('.river-byline__authors').text.strip
@@ -15,11 +15,11 @@ class Scraper
     articles
   end
 
-  def self.scrape_full_text(article_href)
-    full_articles = {}
+  def self.scrape_full_text(article_href) # - Takes argument of article's own href
+    full_articles = {} # - Sets empty hash to collect text
     full_text = Nokogiri::HTML(open(article_href))
-    full_text.css('div.article-content').each do |article|
-      full_articles[:full_text] = full_text.css('p').text.strip
+    full_text.css('div.article-content').each do |article| # - Iterate over nodeset to capture article text
+      full_articles[:text] = full_text.css('p').text.strip
     end
     full_articles
   end

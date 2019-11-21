@@ -52,7 +52,7 @@ class CLI
         puts " #{selected_article.title.upcase}"
         puts " By #{selected_article.author}"
         puts ""
-        puts " #{selected_article.full_text}"
+        puts " #{selected_article.text}"
         puts ""
         puts "the full article can be found at: #{selected_article.href}"
         puts divider

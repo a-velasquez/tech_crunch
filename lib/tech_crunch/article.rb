@@ -1,5 +1,5 @@
 class Article
-  attr_accessor :author, :full_text, :href, :preview, :title
+  attr_accessor :author, :text, :href, :preview, :title
 
   @@all = []
 
@@ -19,7 +19,8 @@ class Article
   def add_full_text(article_hash) # - Instance method takes resulting hash from Scraper.scrape_full_text
     article_hash.each do |key, value|
       self.send("#{key}=", value)
-      # self. operates on each instance of article to set key/value pairs of the hash for each article instance 
+      # self. operates on each instance of article to set key/value pairs of the hash to the corresponding attributes
+      
     end
   end
 
