@@ -20,7 +20,6 @@ class Article
     article_hash.each do |key, value|
       self.send("#{key}=", value)
       # self. operates on each instance of article to set key/value pairs of the hash to the corresponding attributes
-
     end
   end
 

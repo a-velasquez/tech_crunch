@@ -16,6 +16,7 @@ class CLI
     puts "   `  `---'`---'`   '`---'`    `---'`   '`---'`   '"
     puts ""
     puts " Latest articles loading..."
+    puts divider
   end
 
   def make_articles
@@ -28,8 +29,7 @@ class CLI
     end
   end
 
-  def recent_articles     # - Lists most recent articles by calling Article.all and iterating
-    puts divider
+  def recent_articles
     Article.all.each.with_index(1) do |article, index|
       puts "#{index}. #{article.title.upcase} By #{article.author}"
       puts ""
@@ -61,7 +61,7 @@ class CLI
       elsif input == "exit"
         goodbye
       else
-        puts " Hmmm. I didn't quite get that" # - Message user gets if invalid input.
+        puts " Hmmm. I didn't quite get that" # - Message user gets if input is invalid.
       end
     end
   end
@@ -74,6 +74,13 @@ class CLI
     puts " ~" * 60
   end
 end
+
+
+
+
+
+
+
 
 
 
