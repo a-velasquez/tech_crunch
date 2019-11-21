@@ -1,5 +1,5 @@
 class Article
-  attr_accessor :author, :text, :href, :preview, :title
+  attr_accessor :author, :full_text, :href, :preview, :title
 
   @@all = []
 
@@ -12,7 +12,7 @@ class Article
 
   def self.create_from_cli(articles_array) # - Takes in array of hashes created by Scraper.scrape_headlines
     articles_array.each do |article|
-      self.new(article) # - Creates new instances of Articles using each hash
+      self.new(article) # - Creates new instances of Articles using each hash, giving each article its hash of details
     end
   end
 
@@ -20,7 +20,7 @@ class Article
     article_hash.each do |key, value|
       self.send("#{key}=", value)
       # self. operates on each instance of article to set key/value pairs of the hash to the corresponding attributes
-      
+
     end
   end
 

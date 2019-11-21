@@ -17,11 +17,11 @@ class Scraper
 
   def self.scrape_full_text(article_href) # - Takes argument of article's own href
     full_articles = {} # - Sets empty hash to collect text
-    full_text = Nokogiri::HTML(open(article_href))
-    full_text.css('div.article-content').each do |article| # - Iterate over nodeset to capture article text
-      full_articles[:text] = full_text.css('p').text.strip
+    article_landing = Nokogiri::HTML(open(article_href))
+    article_landing.css('div.article-content').each do |article| # - Iterate over nodeset to capture article text
+      full_articles[:full_text] = article_landing.css('p').text.strip
     end
-    full_articles
+    full_articles # - Returning hash
   end
 end
 
@@ -42,7 +42,7 @@ end
 #       #  full_article = Nokogiri::HTML(open(href))
 #       #  full_article.css('div.article-content').each do |article|
 #       #     full_text = full_article.css('p').text
-#           Article.new(title, preview, author, href)#, full_text)
+#           Article.new(title, preview, author, href)
 #       #  end
 #      end
 #    end
